@@ -1,0 +1,26 @@
+service: basic-serverless-lambda-python
+
+provider:
+  name: aws
+  runtime: python3.11
+  stage: dev
+  region: eu-west-2
+
+plugins:
+  - serverless-python-requirements
+
+package:
+  individually: true
+
+functions:
+  multiplyMatrix:
+    name: multiplyMatrix
+    handler: multiplyMatrix.handler
+    description: scrape data vis topics
+    timeout: 1000
+    memorySize: 128
+    package:
+      patterns:
+        - "!node_modules/**"
+        - "!package-lock.json"
+        - "!package.json"
