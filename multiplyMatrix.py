@@ -7,7 +7,7 @@ def matrix_multiply(matrix_a, matrix_b):
     return np.dot(a, b).tolist()
 
 def handler(event, context):
-    body = json.loads(event['body'])
+    body = json.loads(event)
 
     matrix_a = body.get('matrix_a')
     matrix_b = body.get('matrix_b')
