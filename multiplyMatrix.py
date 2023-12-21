@@ -7,8 +7,10 @@ def matrix_multiply(matrix_a, matrix_b):
     return np.dot(a, b).tolist()
 
 def handler(event, context):
-    matrix_a = event.get('matrix_a')
-    matrix_b = event.get('matrix_b')
+    body = json.loads(event['body'])
+
+    matrix_a = body.get('matrix_a')
+    matrix_b = body.get('matrix_b')
 
     if not matrix_a or not matrix_b:
         return {"statusCode": 400, "body": "matrices not received"}
