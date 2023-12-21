@@ -16,7 +16,7 @@ functions:
   multiplyMatrix:
     name: multiplyMatrix
     handler: multiplyMatrix.handler
-    description: scrape data vis topics
+    description: multiple matrix
     timeout: 900
     memorySize: 128
     package:

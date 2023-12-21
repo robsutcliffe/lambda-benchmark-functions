@@ -22,4 +22,17 @@ def handler(event, context):
         return {"statusCode": 400, "body": "matrices are not same length and breadth"}
 
     result = matrix_multiply(matrix_a, matrix_b)
-    return {"statusCode": 200, "body": json.dumps(result)}
+
+    cors_headers = {
+        "Access-Control-Allow-Origin": "https://robsutcliffe.static.observableusercontent.com",
+        "Access-Control-Allow-Headers": "Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token",
+        "Access-Control-Allow-Methods": "DELETE,GET,HEAD,OPTIONS,PATCH,POST,PUT"
+    }
+
+    response = {
+        "statusCode": 200,
+        "body": json.dumps(result),
+        "headers": cors_headers
+    }
+
+    return response
