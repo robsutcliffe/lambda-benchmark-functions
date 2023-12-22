@@ -1,5 +1,5 @@
 {
-  "name": "data-vis-topic-extractor",
+  "name": "lambda-benchmark-functons",
   "version": "1.0.0",
   "description": "Serverless functions to extract and rate data vis topics shared online",
   "keywords": [],
