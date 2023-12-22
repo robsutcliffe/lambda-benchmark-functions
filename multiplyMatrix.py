@@ -12,9 +12,7 @@ def matrix_multiply(matrix_a, matrix_b):
     return np.dot(a, b).tolist()
 
 def handler(event, context):
-    body = json.loads(event['body'])
-
-    matrix_size = body.get('matrix_size');
+    matrix_size = event['matrix_size'];
 
     if not matrix_size:
         return {"statusCode": 400, "body": "matrix_size not received"}
@@ -25,8 +23,7 @@ def handler(event, context):
 
     cors_headers = {
         "Access-Control-Allow-Origin": "https://robsutcliffe.static.observableusercontent.com",
-        "Access-Control-Allow-Headers": "Content-Type",
-        "Access-Control-Allow-Methods": "POST"
+        "Access-Control-Allow-Methods": "GET"
     }
 
     response = {
