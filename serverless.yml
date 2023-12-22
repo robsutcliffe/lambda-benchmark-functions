@@ -24,3 +24,10 @@ functions:
         - "!node_modules/**"
         - "!package-lock.json"
         - "!package.json"
+
+  ping:
+    handler: ping.handler
+    events:
+      - http:
+          path: ping
+          method: get
