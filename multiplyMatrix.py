@@ -1,11 +1,9 @@
 import numpy as np
-import random
 import json
 
 def generate_matrices(matrix_size):
-    matrices = [[[random.random() for _ in range(matrix_size)] for _ in range(matrix_size)],
-                [[random.random() for _ in range(matrix_size)] for _ in range(matrix_size)]]
-    return matrices
+    return [np.random.rand(matrix_size, matrix_size) for _ in range(2)]
+
 def matrix_multiply(matrix_a, matrix_b):
     a = np.array(matrix_a)
     b = np.array(matrix_b)
