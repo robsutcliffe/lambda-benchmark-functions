@@ -12,7 +12,8 @@ def matrix_multiply(matrix_a, matrix_b):
     return np.dot(a, b).tolist()
 
 def handler(event, context):
-    matrix_size = event['matrix_size'];
+    matrix_size_str = event['queryStringParameters']['matrix_size']
+    matrix_size = int(matrix_size_str)
 
     if not matrix_size:
         return {"statusCode": 400, "body": "matrix_size not received"}
@@ -28,7 +29,7 @@ def handler(event, context):
 
     response = {
         "statusCode": 200,
-        "body": json.dumps(result),
+        "body": json.dumps({ "success": "true" }),
         "headers": cors_headers
     }
 
