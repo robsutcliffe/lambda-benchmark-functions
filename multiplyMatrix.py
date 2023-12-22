@@ -20,7 +20,7 @@ def handler(event, context):
 
     matrix_a, matrix_b = generate_matrices(matrix_size)
 
-    matrix_multiply(matrix_a, matrix_b)
+    result = matrix_multiply(matrix_a, matrix_b)
 
     cors_headers = {
         "Access-Control-Allow-Origin": "https://robsutcliffe.static.observableusercontent.com",
@@ -29,7 +29,7 @@ def handler(event, context):
 
     response = {
         "statusCode": 200,
-        "body": json.dumps({ "run-time": end-start }),
+        "body": json.dumps({ "success": "true" }),
         "headers": cors_headers
     }
 
