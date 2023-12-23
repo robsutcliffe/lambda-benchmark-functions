@@ -10,6 +10,18 @@ def matrix_multiply(matrix_a, matrix_b):
     return np.dot(a, b).tolist()
 
 def handler(event, context):
+    cors_headers = {
+        "Access-Control-Allow-Origin": "https://robsutcliffe.static.observableusercontent.com",
+        "Access-Control-Allow-Methods": "GET"
+    }
+
+    if event.get('queryStringParameters', {}).get('ping') == 'true':
+        return {
+            "statusCode": 200,
+            "body": "pong",
+            "headers": cors_headers
+        }
+
     matrix_size_str = event['queryStringParameters']['matrix_size']
     matrix_size = int(matrix_size_str)
 
@@ -19,11 +31,6 @@ def handler(event, context):
     matrix_a, matrix_b = generate_matrices(matrix_size)
 
     result = matrix_multiply(matrix_a, matrix_b)
-
-    cors_headers = {
-        "Access-Control-Allow-Origin": "https://robsutcliffe.static.observableusercontent.com",
-        "Access-Control-Allow-Methods": "GET"
-    }
 
     response = {
         "statusCode": 200,
