@@ -5,6 +5,7 @@ service: basic-serverless-lambda-python
 provider:
   name: aws
   runtime: python3.11
+  profile: dev
   stage: dev
   region: eu-west-2
 
